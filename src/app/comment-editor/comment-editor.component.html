@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    <input [(ngModel)]="comment.title" class="form-control" placeholder="Title..."/>
+  </div>
+  <div class="card-body text-dark">
+    <p class="card-text" >
+      <textarea [(ngModel)]="comment.text" class="form-control" placeholder="Content..."></textarea>
+    </p>
+    <div>
+      <tag-input
+        [(ngModel)]="comment.tags"
+        [modelAsStrings]="true"
+        placeholder="Tags..."
+        secondaryPlaceholder="Tags..."
+        >
+        <tag-input-dropdown [autocompleteItems]="tags | async"></tag-input-dropdown>
+      </tag-input>
+    </div>
+  </div>
+  <div class="card-footer">
+    <button class="btn btn-primary" (click)="save.emit(comment)">Save</button>
+    <button *ngIf="cancelable" class="btn btn-default" (click)="cancel.emit(comment)">Cancel</button>
+  </div>
+</div>

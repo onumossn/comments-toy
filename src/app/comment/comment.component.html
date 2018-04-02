@@ -1,0 +1,6 @@
+<div *ngIf="state == 'view'; else editBlock"> 
+  <comment-viewer [comment]="comment" (edit)="onEdit($event)"></comment-viewer>
+</div>
+<ng-template #editBlock>
+  <comment-editor [comment]="editableComment" [tags]="tags" (save)="onSave($event)" (cancel)="onCancel($event)"></comment-editor>
+</ng-template>
