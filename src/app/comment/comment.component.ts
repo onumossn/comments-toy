@@ -8,6 +8,7 @@ export class CommentComponent {
   @Input() comment: Comment;
   @Input() tags: Object[];
   @Output() save: EventEmitter<Comment> = new EventEmitter();
+  @Output() delete: EventEmitter<Comment> = new EventEmitter();
 
   editableComment: Comment;
   state: String = 'view';
@@ -23,6 +24,10 @@ export class CommentComponent {
   onSave(comment) {
     this.save.emit(comment);
     this.state = 'view';
+  }
+
+  onDelete(comment) {
+    this.delete.emit(comment);
   }
 
   onCancel(comment) {

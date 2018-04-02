@@ -12,7 +12,7 @@
     <tag-input-dropdown [autocompleteItems]="tags | async"></tag-input-dropdown>
   </tag-input>
   <div *ngFor="let comment of comments | async" class="mb-4">
-    <comment [comment]="comment" [tags]="tags" (save)="onSave($event)"></comment>
+    <comment [comment]="comment" [tags]="tags" (save)="onSave($event)" (delete)="onDelete($event)"></comment>
   </div>
   <comment-editor [comment]="newComment" [tags]="tags" [cancelable]="false" (save)="onSave($event)" class="mb-4"></comment-editor>
 </div>

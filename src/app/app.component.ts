@@ -31,4 +31,12 @@ export class AppComponent {
         this.tags = this.commentsService.getTagsList();
       });
   }
+
+  onDelete(comment) {
+    this.commentsService.delete(comment)
+      .subscribe(() => {
+        this.comments = this.commentsService.get(this.filter);
+        this.tags = this.commentsService.getTagsList();
+      });
+  }
 }

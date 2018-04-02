@@ -41,6 +41,11 @@ export class CommentsService {
     return Observable.of(comment);
   }
 
+  delete(comment: Comment) {
+    this.comments.splice(this.comments.findIndex(v => v.id === comment.id), 1);
+    return Observable.of(true);
+  }
+
   getTagsList() {
     return this.get([]).map(comments => {
       let tagMap = {};
